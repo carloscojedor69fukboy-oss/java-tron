@@ -1,0 +1,25 @@
+{
+  "name": "java-tron PoC",
+  "image": "mcr.microsoft.com/devcontainers/java:1-8-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "8",
+      "jdkDistro": "ms"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "chmod +x gradlew && echo 'org.gradle.daemon=false' >> gradle.properties",
+  "remoteEnv": {
+    "JAVA_TOOL_OPTIONS": "-Xms512m"
+  }
+}
